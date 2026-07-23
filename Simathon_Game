@@ -1,0 +1,39 @@
+print("=== Welcome To The World Little One! ===")
+
+class Human:
+    def __init__(self, name, ethnicity, hospital, gender,mood):
+        self.name = name
+        self.ethnicity = ethnicity
+        self.hospital = hospital
+        self.gender = gender
+        self.mood = mood
+
+    def introductions(self):
+        return (
+            f"Hi, my name is {self.name}\n"
+            f"My ethnicity is {self.ethnicity}\n"
+            f"I was born at {self.hospital}\n"
+            f"My gender is {self.gender}"
+        )
+
+# Get user input
+user_name = input("What is your name? ")
+user_ethnicity = input("What is your ethnicity? ")
+user_hospital = input("What hospital were you born at ")
+user_gender = input("What is your gender? ")
+
+mood = input("how are you feeling today(Happy or Mad)? ").lower()
+if mood == "happy":
+    print("you go outside for a walk")
+elif mood == "mad":
+    print("you pause what your doing and take deep breaths")
+
+
+
+
+# Create Human characters
+human = Human(user_name, user_ethnicity, user_hospital, user_gender, mood)
+
+# Print introduction
+print()
+print(human.introductions())
