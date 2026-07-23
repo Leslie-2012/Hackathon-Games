@@ -1,0 +1,110 @@
+import random as rn
+
+class Character:
+    def __init__(self, name, hp, atk, defense):
+        self.name = name
+        self.max_hp = hp            #Character stats
+        self.hp = hp
+        self.atk = atk
+        self.defense = defense
+    rn
+    def attack(self, enemy, damage):
+        damage = max(1, damage - enemy.defense)
+        enemy.hp -= damage
+        if enemy.hp < 0:                #How the enemy takes damage and the player is able to attack back
+            enemy.hp = 0
+        print(f"{self.name} used an attack!")
+        print(f"{enemy.name} took {damage} damage!")
+
+    def heal(self, amount):
+        self.hp = min(self.max_hp, self.hp + amount)
+        print(f"{self.name} healed {amount} HP!")               #How the Character/Player is able to heal
+
+    def alive(self):
+        return self.hp > 0          #Checks if the player is alive
+class You(Character):
+    def __init__(self):
+        super().__init__("You", 100, 20, 20)         #Your stats
+def determination_game():
+    game = {
+        "word": "DETERMINATION",
+        "guesses": [],
+        "attempts": 0,              #Minigame where if you guess correctly you get a buff
+        "max_attempts": 7
+    }
+
+    while game["attempts"] < game["max_attempts"]:
+
+        print("\nWord:")
+
+        for letter in game["word"]:
+            if letter in game["guesses"]:
+                print(letter, end=" ")
+            else:
+                print("_", end=" ")
+
+        print()
+
+        guess = input("Guess a letter: ").upper()
+
+        if guess in game["word"]:
+            if guess not in game["guesses"]:
+                game["guesses"].append(guess)
+                print("Correct!")
+        else:
+            game["attempts"] += 1           #Takes out one attempt if its wrong
+            print("Wrong!")
+
+        if all(letter in game["guesses"] for letter in game["word"]):
+            print("You solved the word!")
+            return True
+
+    print("You failed!")            #If you fail your health gets taken away by a little
+    return False
+player = You()
+enemy = Character("Letter", 120, 25, 15)
+
+while player.alive() and enemy.alive():
+
+    print(f"\n{player.name}: {player.hp}/{player.max_hp}")
+    print(f"{enemy.name}: {enemy.hp}/{enemy.max_hp}")
+                                #UI for the player to chose from 1-4
+    print("""
+1. Bite
+2. Power Slam
+3. Heal
+4. Guess
+""")
+
+    choice = input("> ")
+
+    if choice == "1":
+        player.attack(enemy, player.atk)
+
+    elif choice == "2":
+        player.attack(enemy, player.atk + 10)
+                                            #Checks where if the player chooses 1 or the other
+    elif choice == "3":
+        player.heal(20)
+
+    elif choice == "4":
+        if determination_game():
+            print("Determination fills you with strength!")
+            player.heal(30)
+        else:
+            print("You lost your focus.")
+            player.hp -= 30
+
+    else:
+        print("Invalid move.")
+        continue                #Checks to see wheater its a number or anything other than 1-4
+
+    if enemy.alive():
+        enemy.attack(player, enemy.atk)             #Checks if the enemy is alive and if it is it attacks
+
+print()
+
+if player.alive():
+    print("You win!")
+else:                   #if the player is alive
+    print("Game Over!")
