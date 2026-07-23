@@ -1,0 +1,31 @@
+print("///-Help the astronaut get back home!-///")
+print("*-----Astronaut Elise Kauchiso is lost in space and can't reach the I.S.S, Help her get back home to earth!-----*")
+first = input("Astronaut Elise Kauchiso is stuck in the abyss of space!, she needs to find a nearby space shuttle so she can ask for help!, should she move to a nearby astroid, scream for help, or just move forward in hope of a shuttle nearby?")
+if first == "Move to a nearby astroid":
+    print("Good job, Astronaut Kauchiso is now on a astroid and can look nearby for a shuttle")
+elif first == "Scream for help":
+    print("Astronaut Kauchiso is in space! how is anyone going to hear her! Kauchiso is still lost and eventually died of dehydration! Restart and try again.")
+elif first == "Move forward in hope of a shuttle nearby":
+    print("Astronaut Kauchiso is now even more lost! Why would you move forward?! Restart and try again.")
+print("Astronaut Elise Kauchiso is now on the astroid, she sees a nearby alien on a bigger astroid?! She approaches it and the alien start speaking an unkown language?, it says: 'Oat ygmzt yaqooft cy utme oat vddu, atmh od oamo myoedch dnte oatet!' ")
+alien = input("Decode what the alien is saying!//Decoder [english to alien]:A=M, B=K, C=Z, D=H, E=T, F=W, G=S, H=A, I=C, J=L, K=I, L=F, M=V, N=U, O=D, P=G, Q=B, R=E, S=Y, T=O, U=Q, V=N, W=P, X=N, Y=Z, Z=J\\")
+if alien == "The space shuttle is near the moon, head to that astroid over there!":
+    print("Congrats! You decoded the alien's message! it said 'The space shuttle is near the moon, head to that astroid over there!")
+else: ("Astronaut Kachiso didn't understand what the alien was saying, she didn't get the message and eventually was stuck on the astroid, Restart and try again.")
+print("Astronaut Kauchiso got the instructions from the alien, now she needs to head to the astroid near the moon,")
+moonastroid = input("Astronaut Elise Kauchiso is on the astroid and sees a space shuttle! she is saved! There is a safety hatch with a keypad! there are 4 numbers on the side of the shuttle, 6, 8, 2, 1. Could these possibly be the numbers for the keypad? There are a bunch possible combinations! (Hint:*, !, @, ^)")
+if moonastroid == "8126":
+    print("Congrats! you got the right combination, the hatch door opens and Astronaut Kauchiso walks in!")
+else: ("Astronaut Elise didn't get the right combination!, she is stuck out in space! Restart and try again.")
+print("Astronaut Kauchiso walks into the interior of the shuttle, she sees 3 other astronauts there! One of them sees her and asks 'Whos is this?', Astronaut Kauchiso introduces herself and explains that she was stuck, they let her stay!")
+question = input(" An astronaut introduces himself as Astronaut Julian Iano, he asks Kauchiso to control the shuttle so they can head home, she sits in the seat and looks at the control panel, she doesn't understand what to do, help her control the shuttle to head back to NASA. There are 5 control buttons, a Red one, a Yellow one, a Green one, a Purple one, and a Bigger red one that says 'Emergency', what one does she touch, only one button helps the shuttle head to earth!")
+if question == "Purple button":
+    print("The shuttle moves, but the it heads north and not south to earth! You and the other Astronauts are noe completely lost!")
+elif question == "Green button":
+    print("The shuttle moves, and you guys head back to earth!, You win!!")
+elif question == "Yellow button":
+    print("The shuttle doesn't move and the shuttle is stuck in space!")
+elif question == "Red button":
+    print("The shuttle moves very fast back to earth but it crashes and you guys drown!")
+elif question == "Bigger Red button":
+    print("Really? The big red button? The shuttle loses power and the astronauts die")
